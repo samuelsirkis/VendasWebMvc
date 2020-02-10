@@ -21,6 +21,14 @@ namespace VendasWebMvc.Controllers
         public IActionResult Index()
         {
             return View();
+        } 
+        
+        public IActionResult About()
+        {
+            ViewData["Message"] = "Vendas Web MVC App from C# Course";
+            ViewData["Professor"] = "Samuel Sirkis";
+
+            return View();
         }
 
         public IActionResult Privacy()
@@ -31,7 +39,7 @@ namespace VendasWebMvc.Controllers
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return View(new Models.ViewModels.ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }
